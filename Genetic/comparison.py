@@ -12,10 +12,10 @@ from sklearn.naive_bayes import GaussianNB
 
 def comp(diff,maxGen):
 
-	df = pd.read_csv('Genetic/elecTrainData.csv',header=False)
+	df = pd.read_csv('Genetic/Data/simSEAData.csv',header=False)
 
-	dfY = df.iloc[:,9]
-	dfX = df.iloc[:,1:9]
+	dfY = df.iloc[:,3]
+	dfX = df.iloc[:,0:3]
 
 	#print(dfY)
 	#print(dfX)
@@ -74,3 +74,5 @@ def comp(diff,maxGen):
 		i = i+1
 
 	return acc
+
+

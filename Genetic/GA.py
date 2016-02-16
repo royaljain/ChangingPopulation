@@ -212,14 +212,12 @@ def runGA(kwargs, testmode=False):
 	# # # # # # /PARAMETERS # # # # # #
 	
 
-	df = pd.read_csv('Genetic/elecTrainData.csv',header=False)
+	df = pd.read_csv('Genetic/Data/simSEAData.csv',header=False)
 
-	dfY = df.iloc[:,9]
-	dfX = df.iloc[:,1:9]
+	dfY = df.iloc[:,3]
+	dfX = df.iloc[:,0:3]
 
 	
-	num_classes = 2
-	num_features = 8
 
 	genparams = (genparams[0],genparams[1],[(8,2)])
 
@@ -352,10 +350,14 @@ if __name__ == "__main__":
 	dic = {}
 	lis = []
 	nam = []
+
+	f = open("results2.txt","w")
+
+
 	for setting,name in settings.listOfSettings():
 
 		answer = runGA(setting)
-		print(name + "," + str(sum(answer)/len(answer)) + "\n")
+		f.write(name + "," + str(sum(answer)/len(answer)) + "\n")
 		
 
 		l = range(1,len(answer)+1)	
@@ -366,7 +368,7 @@ if __name__ == "__main__":
 
 
 	
-	m = 500
+	m = 1001
 
 
 	answer = comparison.comp(50,m)
@@ -378,10 +380,10 @@ if __name__ == "__main__":
 	nam.append(name)
 	lis.append(plo)
 
-	print(name + "," + str(sum(answer)/len(answer)) + "\n")
+	f.write(name + "," + str(sum(answer)/len(answer)) + "\n")
 
 
-	'''
+	
 	answer = comparison.comp(100,m)
 
 
@@ -392,7 +394,7 @@ if __name__ == "__main__":
 	nam.append(name)
 	lis.append(plo)
 
-	print(name + "," + str(sum(answer)/len(answer)) + "\n")
+	f.write(name + "," + str(sum(answer)/len(answer)) + "\n")
 
 	answer = comparison.comp(200,m)
 
@@ -403,11 +405,12 @@ if __name__ == "__main__":
 	nam.append(name)
 	lis.append(plo)
 
-	print(name + "," + str(sum(answer)/len(answer)) + "\n")
+
+
+	f.write(name + "," + str(sum(answer)/len(answer)) + "\n")
 	
 	#print(lis)
-	'''
-
+	
 	plt.legend(lis,nam)
 	plt.show()
 	print 'done'

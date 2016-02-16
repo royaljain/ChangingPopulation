@@ -59,7 +59,7 @@ def getAdjMatrix(cities):
 def getTSPSettings():
 	
 	testmode = False
-	maxGens = 5
+	maxGens = 1001
 	targetscore = -7542
 	popsize = 1000
 	
@@ -152,13 +152,13 @@ def getTSPSettings():
 
 def listOfSettings():
 
-	#cross  = [(crossover.cross1,"CROSS1"),(crossover.cross2,"CROSS2")]
-	#mut  = [(mutation.mutate1,"MUT1"),(mutation.mutate2,"MUT2")]
-	#diff = [50,100,200]
+	cross  = [(crossover.cross1,"CROSS1"),(crossover.cross2,"CROSS2")]
+	mut  = [(mutation.mutate1,"MUT1"),(mutation.mutate2,"MUT2")]
+	diff = [50,100,200]
 	
-	cross  = [(crossover.cross1,"CROSS1")]
-	mut  = [(mutation.mutate2,"MUT2")]
-	diff = [50]
+	#cross  = [(crossover.cross1,"CROSS1")]
+	#mut  = [(mutation.mutate2,"MUT2")]
+	#diff = [50]
 
 
 	l = []
@@ -176,7 +176,7 @@ def listOfSettings():
 
 def getOneMaxSettings(c,m,d):
 	
-	maxGens = 500
+	maxGens = 1001
 	targetscore = 30
 	popsize = 100
 	alleles0 = '01'
